@@ -1,7 +1,9 @@
 {
-  "name": "slink-frontend",
-  "version": "0.1.0",
-  "private": true,
+  "name": "slink-music-connect",
+  "version": "1.0.0",
+  "description": "SLink 音樂共鳴交友 App 原型",
+  "main": "index.js",
+  "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -13,7 +15,6 @@
     "react-router-dom": "^6.14.1"
   },
   "devDependencies": {
-    "@vitejs/plugin-react": "^4.0.0",
-    "vite": "^5.0.0"
+    "vite": "^4.4.9"
   }
 }
