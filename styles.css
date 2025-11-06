@@ -107,3 +107,68 @@ button:hover {
 .navbar a.active img {
   filter: brightness(1.5);
 }
+/* 聊天室樣式 */
+.chatroom {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  padding-bottom: 60px;
+}
+
+.chat-window {
+  flex: 1;
+  overflow-y: auto;
+  background-color: rgba(255, 255, 255, 0.85);
+  border-radius: 10px;
+  margin: 10px;
+  padding: 10px;
+}
+
+.message {
+  margin: 8px 0;
+  padding: 10px 15px;
+  border-radius: 15px;
+  max-width: 70%;
+}
+
+.message.user {
+  background-color: #a770ef;
+  color: white;
+  align-self: flex-end;
+}
+
+.message.other {
+  background-color: #fdb99b;
+  color: white;
+  align-self: flex-start;
+}
+
+.message.system {
+  text-align: center;
+  color: #555;
+  font-size: 0.9em;
+  margin: 10px 0;
+}
+
+.chat-input {
+  display: flex;
+  gap: 10px;
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+.chat-input input {
+  flex: 1;
+  padding: 10px;
+  border: 2px solid #a770ef;
+  border-radius: 20px;
+}
+
+.chat-input button {
+  background-color: #a770ef;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
