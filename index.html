@@ -1,100 +1,58 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SLink 音樂共鳴 App</title>
-  <style>
-    body {
-      font-family: "Noto Sans TC", sans-serif;
-      background: linear-gradient(135deg, #a770ef, #fdb99b, #f7f1e3);
-      color: #3a3a3a;
-      margin: 0;
-      padding: 0;
-      text-align: center;
-    }
-    header {
-      background-color: rgba(255,255,255,0.7);
-      padding: 20px;
-      backdrop-filter: blur(6px);
-    }
-    h1 {
-      font-size: 2.2em;
-      color: #6c2bbd;
-      margin-bottom: 10px;
-    }
-    nav {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      margin-top: 10px;
-    }
-    nav a {
-      color: #6c2bbd;
-      text-decoration: none;
-      font-weight: bold;
-      border: 2px solid #6c2bbd;
-      border-radius: 20px;
-      padding: 8px 15px;
-      transition: 0.3s;
-    }
-    nav a:hover {
-      background-color: #6c2bbd;
-      color: white;
-    }
-    .content {
-      margin: 40px auto;
-      width: 80%;
-      max-width: 700px;
-      background-color: rgba(255,255,255,0.85);
-      border-radius: 20px;
-      padding: 30px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    }
-    button {
-      background-color: #fdb99b;
-      border: none;
-      padding: 12px 25px;
-      border-radius: 30px;
-      font-size: 1em;
-      cursor: pointer;
-      color: #fff;
-      font-weight: bold;
-      transition: 0.3s;
-    }
-    button:hover {
-      background-color: #a770ef;
-    }
-    footer {
-      margin-top: 50px;
-      font-size: 0.9em;
-      color: #666;
-    }
-  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SLink 音樂共鳴地圖</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
 </head>
-
 <body>
-  <header>
+  <header class="topbar">
+    <img src="logo.png" alt="SLink Logo" class="logo">
     <h1>SLink</h1>
-    <p>以音樂連結人心的智慧社交 App</p>
-    <nav>
-<nav>
-  <a href="index.html">主頁</a>
-  <a href="room.html">共聽室</a>
-  <a href="map.html">活動地圖</a>
-  <a href="profile.html">我的</a>
-</nav>
-    </nav>
   </header>
 
-  <div class="content">
-    <h2>🎧 遇見與你聽著同一首歌的人</h2>
-    <p>當你在聽歌時，SLink 會偵測附近是否有人也在聽相同的音樂，並以提示音提醒你：「你不是一個人」。</p>
-    <button onclick="alert('提示音響起！附近有人也在聽這首歌 🎶')">模擬提示音</button>
-  </div>
+  <main class="map-area">
+    <h2>🎧 音樂共鳴地圖</h2>
+    <p>你所在的位置與附近同樣聽著音樂的人都會在這裡出現</p>
 
-  <footer>
-    <p>© 2025 SLink Team | 音樂共鳴讓連結更自然</p>
+    <div class="map">
+      <img src="https://i.imgur.com/AtJbOyv.png" alt="map" class="map-image">
+      <div class="pin" style="top: 50%; left: 45%;">
+        <img src="https://i.imgur.com/WyGJY4K.png" class="album">
+        <span>你</span>
+      </div>
+      <div class="pin" style="top: 30%; left: 55%;">
+        <img src="https://i.imgur.com/1o6N36M.png" class="album">
+        <span>🎶 附近用戶</span>
+      </div>
+    </div>
+
+    <button id="soundBtn">🔔 模擬提示音</button>
+  </main>
+
+  <footer class="navbar">
+    <a href="index.html" class="active">
+      <img src="https://img.icons8.com/ios-filled/50/ffffff/home.png"/>
+      <span>主頁</span>
+    </a>
+    <a href="chatroom.html">
+      <img src="https://img.icons8.com/ios-filled/50/ffffff/chat.png"/>
+      <span>共聽室</span>
+    </a>
+    <a href="records.html">
+      <img src="https://img.icons8.com/ios-filled/50/ffffff/map-pin.png"/>
+      <span>共鳴紀錄</span>
+    </a>
+    <a href="profile.html">
+      <img src="https://img.icons8.com/ios-filled/50/ffffff/user.png"/>
+      <span>我的</span>
+    </a>
+    <a href="settings.html">
+      <img src="https://img.icons8.com/ios-filled/50/ffffff/settings.png"/>
+      <span>設定</span>
+    </a>
   </footer>
 </body>
 </html>
