@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SLink - 共鳴啟動</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #a770ef, #fdb99b, #f7f1e3);
+      font-family: "Noto Sans TC", sans-serif;
+      color: #3a3a3a;
+      overflow: hidden;
+    }
+    .logo {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      background-color: rgba(255,255,255,0.8);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 0 20px rgba(255,255,255,0.6);
+      animation: floatIn 2s ease;
+    }
+    .logo img {
+      width: 120px;
+    }
+    .subtitle {
+      margin-top: 20px;
+      font-size: 1.2em;
+      opacity: 0;
+      animation: fadeIn 2.5s forwards;
+    }
+    @keyframes floatIn {
+      0% { transform: translateY(40px); opacity: 0; }
+      100% { transform: translateY(0); opacity: 1; }
+    }
+    @keyframes fadeIn {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="logo">
+    <!-- 明天放你的 logo 檔案 -->
+    <img src="logo.png" alt="SLink Logo" />
+  </div>
+  <p class="subtitle">以音樂連結人心的智慧社交 App</p>
+
+  <!-- 提示音（明天替換成你上傳的音效檔連結） -->
+  <audio id="chime" autoplay>
+    <source src="sound.mp3" type="audio/mpeg">
+  </audio>
+
+  <script>
+    // 3秒後轉跳到主頁
+    setTimeout(() => {
+      window.location.href = "index.html";
+    }, 3000);
+  </script>
+</body>
+</html>
