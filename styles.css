@@ -1,0 +1,52 @@
+:root{
+  --accent:#7B61FF;
+  --muted:#666;
+  --bg:#fafafa;
+}
+*{box-sizing:border-box}
+body{font-family: "Noto Sans", Arial, sans-serif; margin:0; background:var(--bg); color:#222}
+.app{min-height:100vh; display:flex; flex-direction:column}
+.nav{height:60px; background:white; display:flex; align-items:center; justify-content:space-between; padding:0 18px; box-shadow:0 1px 4px rgba(0,0,0,0.06)}
+.nav-brand{font-weight:700; font-size:20px; color:var(--accent)}
+.nav-links a{margin-left:12px; text-decoration:none; color:#444}
+.nav-links a.active{color:var(--accent); font-weight:600}
+.container{max-width:900px; margin:20px auto; padding:0 12px}
+
+/* hero */
+.hero{background:white; padding:20px; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.04)}
+.hero h1{margin:0 0 8px 0}
+.primary{background:var(--accent); color:white; border:none; padding:8px 12px; border-radius:6px; cursor:pointer; text-decoration:none}
+.outline{background:transparent; color:var(--accent); border:1px solid var(--accent); padding:6px 10px; border-radius:6px; text-decoration:none}
+
+/* features */
+.feature-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-top:12px}
+.feature{background:white; padding:12px; border-radius:8px; box-shadow:0 1px 6px rgba(0,0,0,0.04)}
+
+/* card */
+.card{display:flex; align-items:center; gap:12px; background:white; padding:10px; border-radius:8px; margin-top:10px; box-shadow:0 1px 6px rgba(0,0,0,0.04)}
+.avatar{width:54px; height:54px; border-radius:50%; background:var(--accent); color:white; display:flex; align-items:center; justify-content:center; font-weight:700}
+.card-body{flex:1}
+.card-title{font-weight:700}
+.card-sub{color:var(--muted); font-size:13px}
+.pill{display:inline-block; background:#f0f0ff; color:var(--accent); padding:4px 8px; border-radius:999px; margin-right:6px; font-size:12px}
+.card-actions .btn{background:#efefef; padding:6px 8px; border-radius:6px; text-decoration:none; color:#333}
+
+/* profile */
+.profile-card input, .profile-card textarea{width:100%; padding:8px; margin-top:6px; border-radius:6px; border:1px solid #ddd}
+.tags{display:flex; gap:8px; flex-wrap:wrap; margin-top:8px}
+.tag{border:1px solid #ddd; padding:6px 10px; border-radius:999px; background:white; cursor:pointer}
+.tag-active{background:var(--accent); color:white; border-color:var(--accent)}
+
+/* connect */
+.noti-area{margin-top:12px}
+.noti{background:#fff7ff; border:1px solid #f0e2ff; padding:10px; border-radius:8px}
+.noti-song{font-weight:700}
+.muted{color:var(--muted)}
+
+/* chat */
+.chat-box{background:white; padding:12px; min-height:240px; border-radius:8px; margin-top:8px}
+.chat-msg{padding:8px 12px; margin:6px 0; border-radius:18px; max-width:70%}
+.chat-me{background:var(--accent); color:white; margin-left:auto}
+.chat-them{background:#f1f1f1}
+.chat-input{display:flex; gap:8px; margin-top:8px}
+.chat-input input{flex:1; padding:8px; border-radius:6px; border:1px solid #ddd}
