@@ -1,2 +1,2 @@
-# SLink-music-connect-
+# SLink-music-connect
 SLink 音樂共鳴交友App Prototype
