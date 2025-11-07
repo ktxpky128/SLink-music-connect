@@ -1,49 +1,86 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SLink 音樂共鳴 App</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>SLink — 主頁</title>
+  <link rel="stylesheet" href="style.css" />
   <script src="script.js" defer></script>
 </head>
 <body>
   <header class="topbar">
     <img src="logo.png" alt="SLink Logo" class="logo">
-    <h1>SLink</h1>
+    <div class="top-title">
+      <h1>SLink</h1>
+      <p class="subtitle">以音樂連結人心</p>
+    </div>
   </header>
 
-  <main class="map-area">
-    <h2>🎧 附近的音樂共鳴</h2>
-    <div class="map">
-      <div class="pin" style="top:40%;left:30%;" data-song="NIGHT DANCER"></div>
-      <div class="pin" style="top:60%;left:55%;" data-song="Lover Boy 88"></div>
-      <div class="pin user" style="top:50%;left:45%;" data-song="Mariposa"></div>
-    </div>
-    <button onclick="playChime()">模擬提示音</button>
+  <main class="container">
+    <section class="home-hero">
+      <h2>附近的音樂共鳴</h2>
+      <p class="muted">SLink 會在你附近偵測到相同曲目或相同興趣的用戶，並以提示音提醒你</p>
+
+      <div class="map-card">
+        <!-- 這是一個簡易地圖樣式示意（後續可以換成真正地圖） -->
+        <div class="map">
+          <div class="pin" style="top:40%;left:30%;" data-song="K-POP STAR"></div>
+          <div class="pin" style="top:60%;left:55%;" data-song="Chill Instrumental"></div>
+          <div class="pin user" style="top:50%;left:45%;" data-song="你正在聽：Mariposa"></div>
+        </div>
+      </div>
+
+      <div class="now-listen">
+        <div class="now-card">
+          <div class="album">
+            <!-- 你可以把封面放成背景圖 -->
+            <div class="album-cover">🎵</div>
+          </div>
+          <div class="now-info">
+            <div class="song">現在正在聽：Mariposa</div>
+            <div class="artist">演出者：樣本歌手</div>
+            <div class="actions">
+              <button class="btn primary" onclick="playChime()">模擬提示音</button>
+              <a href="rooms.html" class="btn outline">查看共聽室</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="quick-links">
+      <a class="card-link" href="rooms.html">
+        <div>🎧 共聽房間</div>
+        <small>立刻加入主題房</small>
+      </a>
+      <a class="card-link" href="profile.html">
+        <div>👤 我的檔案</div>
+        <small>管理頭貼與興趣</small>
+      </a>
+      <a class="card-link" href="records.html">
+        <div>📍 共鳴紀錄</div>
+        <small>查看觸發歷程</small>
+      </a>
+      <a class="card-link" href="settings.html">
+        <div>⚙️ 設定</div>
+        <small>隱私 / 距離設定</small>
+      </a>
+    </section>
   </main>
 
-  <footer class="navbar">
-    <a href="index.html" class="active">
-      <img src="https://img.icons8.com/ios-filled/50/ffffff/home.png"/>
-      <span>主頁</span>
+  <nav class="navbar">
+    <a href="index.html" class="nav-item active">
+      <img src="icons/home.svg" alt=""><span>首頁</span>
     </a>
-    <a href="chatroom.html">
-      <img src="https://img.icons8.com/ios-filled/50/ffffff/chat.png"/>
-      <span>共聽室</span>
+    <a href="rooms.html" class="nav-item">
+      <img src="icons/rooms.svg" alt=""><span>共聽室</span>
     </a>
-    <a href="records.html">
-      <img src="https://img.icons8.com/ios-filled/50/ffffff/map-pin.png"/>
-      <span>共鳴紀錄</span>
+    <a href="profile.html" class="nav-item">
+      <img src="icons/user.svg" alt=""><span>我的</span>
     </a>
-    <a href="profile.html">
-      <img src="https://img.icons8.com/ios-filled/50/ffffff/user.png"/>
-      <span>我的</span>
+    <a href="settings.html" class="nav-item">
+      <img src="icons/settings.svg" alt=""><span>設定</span>
     </a>
-    <a href="settings.html">
-      <img src="https://img.icons8.com/ios-filled/50/ffffff/settings.png"/>
-      <span>設定</span>
-    </a>
-  </footer>
+  </nav>
 </body>
 </html>
