@@ -1,29 +1,57 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>我的 | SLink</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>SLink — 我的</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js" defer></script>
 </head>
 <body>
-  <header class="topbar">
-    <button class="back-btn" onclick="window.location.href='index.html'">←</button>
-    <h1>👤 我的</h1>
+  <header class="topbar small">
+    <button class="back-btn" onclick="location.href='index.html'">←</button>
+    <img src="logo.png" alt="SLink" class="logo smalllogo">
+    <h1>我的檔案</h1>
   </header>
 
-  <main class="profile">
-    <img src="https://img.icons8.com/3d-fluency/94/user-male-circle.png" class="avatar" />
-    <h2>@echomeet_user</h2>
-    <p>🎧 我的標籤：#indie #chill #夜貓子</p>
+  <main class="container profile-page">
+    <section class="profile">
+      <div class="avatar-wrap">
+        <img id="avatarPreview" class="avatar" src="https://img.icons8.com/ios-filled/100/000000/user.png" alt="avatar">
+      </div>
+
+      <div class="profile-form">
+        <label>暱稱
+          <input id="nickname" type="text" placeholder="@你的暱稱" />
+        </label>
+
+        <label>自我介紹
+          <textarea id="bio" rows="3" placeholder="簡短介紹自己、喜歡的音樂..."></textarea>
+        </label>
+
+        <label>興趣標籤（用逗號分開）
+          <input id="tags" type="text" placeholder="例：indie, kpop, jazz" />
+        </label>
+
+        <label>上傳頭貼（手機可選照片）
+          <input id="avatarInput" type="file" accept="image/*" />
+        </label>
+
+        <div class="profile-actions">
+          <button class="btn primary" onclick="saveProfile()">儲存檔案</button>
+          <button class="btn outline" onclick="resetProfile()">重設</button>
+        </div>
+
+        <div class="preview-tags" id="previewTags"></div>
+      </div>
+    </section>
   </main>
 
-  <footer class="navbar">
-    <a href="index.html"><img src="https://img.icons8.com/ios-filled/50/ffffff/home.png"/><span>主頁</span></a>
-    <a href="chatroom.html"><img src="https://img.icons8.com/ios-filled/50/ffffff/chat.png"/><span>共聽室</span></a>
-    <a href="records.html"><img src="https://img.icons8.com/ios-filled/50/ffffff/map-pin.png"/><span>共鳴紀錄</span></a>
-    <a href="profile.html" class="active"><img src="https://img.icons8.com/ios-filled/50/ffffff/user.png"/><span>我的</span></a>
-    <a href="settings.html"><img src="https://img.icons8.com/ios-filled/50/ffffff/settings.png"/><span>設定</span></a>
-  </footer>
+  <nav class="navbar">
+    <a href="index.html" class="nav-item"><img src="icons/home.svg" alt=""><span>首頁</span></a>
+    <a href="rooms.html" class="nav-item"><img src="icons/rooms.svg" alt=""><span>共聽室</span></a>
+    <a href="profile.html" class="nav-item active"><img src="icons/user.svg" alt=""><span>我的</span></a>
+    <a href="settings.html" class="nav-item"><img src="icons/settings.svg" alt=""><span>設定</span></a>
+  </nav>
 </body>
 </html>
