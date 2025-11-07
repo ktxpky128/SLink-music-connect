@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SLink 音樂共鳴地圖</title>
+  <title>SLink 音樂共鳴 App</title>
   <link rel="stylesheet" href="style.css">
   <script src="script.js" defer></script>
 </head>
@@ -14,22 +14,13 @@
   </header>
 
   <main class="map-area">
-    <h2>🎧 音樂共鳴地圖</h2>
-    <p>你所在的位置與附近同樣聽著音樂的人都會在這裡出現</p>
-
+    <h2>🎧 附近的音樂共鳴</h2>
     <div class="map">
-      <img src="https://i.imgur.com/AtJbOyv.png" alt="map" class="map-image">
-      <div class="pin" style="top: 50%; left: 45%;">
-        <img src="https://i.imgur.com/WyGJY4K.png" class="album">
-        <span>你</span>
-      </div>
-      <div class="pin" style="top: 30%; left: 55%;">
-        <img src="https://i.imgur.com/1o6N36M.png" class="album">
-        <span>🎶 附近用戶</span>
-      </div>
+      <div class="pin" style="top:40%;left:30%;" data-song="NIGHT DANCER"></div>
+      <div class="pin" style="top:60%;left:55%;" data-song="Lover Boy 88"></div>
+      <div class="pin user" style="top:50%;left:45%;" data-song="Mariposa"></div>
     </div>
-
-    <button id="soundBtn">🔔 模擬提示音</button>
+    <button onclick="playChime()">模擬提示音</button>
   </main>
 
   <footer class="navbar">
