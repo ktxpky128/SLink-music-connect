@@ -1,200 +1,109 @@
-/* === 通用設定 === */
-body {
-  font-family: "Noto Sans TC", sans-serif;
-  margin: 0;
-  padding: 0;
-  background: linear-gradient(135deg, #a770ef, #fdb99b, #f7f1e3);
-  color: #333;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
+/* ---------- 基本 ---------- */
+:root{
+  --purple:#a770ef;
+  --orange:#fdb99b;
+  --beige:#f7f1e3;
+  --text:#333;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;font-family:"Noto Sans TC",system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue";
+  background:linear-gradient(135deg,var(--purple),#b98bff,var(--orange),var(--beige));
+  color:var(--text);
+  -webkit-font-smoothing:antialiased;
+  display:flex;flex-direction:column;
+  min-height:100vh;
 }
 
-/* === 頂部列 === */
-.topbar {
-  display: flex;
-  align-items: center;
-  background-color: rgba(255,255,255,0.7);
-  backdrop-filter: blur(6px);
-  padding: 10px 20px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+/* ---------- topbar ---------- */
+.topbar{
+  display:flex;align-items:center;gap:12px;padding:12px 16px;
+  background:rgba(255,255,255,0.75);backdrop-filter:blur(6px);
+  border-bottom:1px solid rgba(0,0,0,0.05);
 }
-.topbar .logo {
-  width: 40px;
-  height: 40px;
-  margin-right: 10px;
-}
-.topbar h1 {
-  color: #6c2bbd;
-  font-size: 1.5em;
-  margin: 0;
-}
-.back-btn {
-  background: none;
-  border: none;
-  font-size: 1.5em;
-  color: #6c2bbd;
-  cursor: pointer;
-}
+.topbar.small{padding:8px}
+.logo{width:52px;height:52px;object-fit:cover;border-radius:12px}
+.smalllogo{width:36px;height:36px}
+.top-title h1{margin:0;font-size:1.2rem;color:var(--purple)}
+.subtitle{margin:0;font-size:0.85rem;color:#6b6b6b}
 
-/* === 底部導航列 === */
-.navbar {
-  display: flex;
-  justify-content: space-around;
-  background-color: #6c2bbd;
-  color: white;
-  padding: 10px 0;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-}
-.navbar a {
-  text-decoration: none;
-  color: white;
-  text-align: center;
-  font-size: 0.8em;
-  flex: 1;
-}
-.navbar a img {
-  width: 24px;
-  height: 24px;
-  display: block;
-  margin: 0 auto 3px;
-  filter: brightness(0) invert(1);
-}
-.navbar a.active {
-  background-color: #fdb99b;
-  border-radius: 10px;
-}
+/* ---------- container ---------- */
+.container{flex:1;overflow:auto;padding:16px}
 
-/* === 地圖區域 === */
-.map-area {
-  flex: 1;
-  padding: 20px;
-  text-align: center;
-}
-.map {
-  width: 100%;
-  height: 400px;
-  background-color: rgba(255,255,255,0.8);
-  border-radius: 15px;
-  position: relative;
-  margin-bottom: 20px;
-}
-.pin {
-  width: 25px;
-  height: 25px;
-  background-color: #fdb99b;
-  border-radius: 50%;
-  position: absolute;
-  cursor: pointer;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-}
-.pin.user {
-  background-color: #6c2bbd;
-}
-.pin::after {
-  content: attr(data-song);
-  position: absolute;
-  bottom: 30px;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 0.7em;
-  background-color: rgba(0,0,0,0.5);
-  color: white;
-  padding: 2px 6px;
-  border-radius: 5px;
-  white-space: nowrap;
-}
+/* ---------- map-card & now ---------- */
+.home-hero h2{margin:6px 0;font-size:1.1rem}
+.muted{color:#666;margin:0 0 12px 0}
+.map-card{background:rgba(255,255,255,0.85);border-radius:14px;padding:12px;margin-bottom:12px}
+.map{position:relative;height:260px;border-radius:10px;background:linear-gradient(180deg,rgba(255,255,255,0.6),rgba(255,255,255,0.9));overflow:hidden}
+.pin{width:28px;height:28px;border-radius:50%;background:var(--orange);position:absolute;transform:translate(-50%,-50%);box-shadow:0 4px 8px rgba(0,0,0,0.12);cursor:pointer}
+.pin.user{background:var(--purple)}
+.pin::after{content:attr(data-song);position:absolute;bottom:34px;left:50%;transform:translateX(-50%);font-size:0.7rem;background:rgba(0,0,0,0.55);color:#fff;padding:4px 6px;border-radius:6px;white-space:nowrap;display:none}
+.pin:hover::after{display:block}
 
-/* === 共聽室 === */
-.chatroom {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  background-color: rgba(255,255,255,0.85);
-  margin: 15px;
-  border-radius: 10px;
-  overflow: hidden;
-}
-.chat-window {
-  flex: 1;
-  padding: 15px;
-  overflow-y: auto;
-}
-.message {
-  background-color: #f7f1e3;
-  border-radius: 20px;
-  padding: 10px 15px;
-  margin-bottom: 10px;
-  max-width: 80%;
-}
-.message.system {
-  background-color: #fdb99b;
-  color: white;
-  text-align: center;
-}
-.chat-input {
-  display: flex;
-  border-top: 1px solid #ccc;
-}
-.chat-input input {
-  flex: 1;
-  padding: 10px;
-  border: none;
-  outline: none;
-}
-.chat-input button {
-  background-color: #6c2bbd;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  cursor: pointer;
-}
+/* 現在正在聽 */
+.now-listen{margin-top:12px}
+.now-card{display:flex;gap:12px;background:rgba(255,255,255,0.95);padding:12px;border-radius:12px;align-items:center}
+.album-cover{width:72px;height:72px;border-radius:10px;background:linear-gradient(135deg,var(--purple),var(--orange));display:flex;align-items:center;justify-content:center;color:white;font-size:1.4rem}
+.now-info{flex:1;text-align:left}
+.song{font-weight:700}
+.artist{font-size:0.9rem;color:#666;margin-top:6px}
+.actions{margin-top:10px;display:flex;gap:10px}
+.btn{border:0;padding:8px 12px;border-radius:999px;cursor:pointer;font-weight:600}
+.btn.primary{background:var(--purple);color:#fff}
+.btn.outline{background:transparent;border:2px solid var(--purple);color:var(--purple)}
 
-/* === 共鳴紀錄 === */
-.records {
-  flex: 1;
-  padding: 20px;
-  background-color: rgba(255,255,255,0.8);
-  margin: 15px;
-  border-radius: 10px;
-}
-.records ul {
-  list-style: none;
-  padding: 0;
-}
-.records li {
-  background-color: #f7f1e3;
-  border-radius: 10px;
-  padding: 10px;
-  margin-bottom: 10px;
-}
+/* ---------- quick links ---------- */
+.quick-links{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:16px}
+.card-link{display:block;background:rgba(255,255,255,0.9);padding:12px;border-radius:10px;text-decoration:none;color:var(--text);text-align:left}
+.card-link small{color:#666}
 
-/* === 我的 === */
-.profile {
-  flex: 1;
-  text-align: center;
-  padding: 20px;
-}
-.avatar {
-  width: 100px;
-  border-radius: 50%;
-  margin-bottom: 10px;
-}
-.profile h2 {
-  color: #6c2bbd;
-}
+/* ---------- navbar ---------- */
+.navbar{position:fixed;bottom:12px;left:12px;right:12px;background:linear-gradient(90deg,var(--purple),#8f5bff);display:flex;justify-content:space-around;padding:8px;border-radius:14px;box-shadow:0 6px 20px rgba(0,0,0,0.15)}
+.navbar .nav-item{text-decoration:none;color:#fff;text-align:center;font-size:12px;flex:1;padding:6px 6px;border-radius:10px}
+.navbar .nav-item img{width:22px;height:22px;display:block;margin:0 auto 4px;filter:brightness(0) invert(1)}
+.navbar .nav-item.active{background:rgba(255,255,255,0.15)}
+/* icons fallback if missing */
+.navbar .nav-item span{display:block}
 
-/* === 設定頁 === */
-.settings {
-  flex: 1;
-  padding: 20px;
-}
-.settings label {
-  display: block;
-  background-color: rgba(255,255,255,0.8);
-  padding: 10px;
-  border-radius: 10px;
-  margin-bottom: 10px;
+/* ---------- rooms list ---------- */
+.rooms-list h2{margin:0 0 8px 0}
+.room-cards{display:flex;flex-direction:column;gap:10px;margin-top:12px}
+.room{display:flex;align-items:center;gap:12px;background:rgba(255,255,255,0.95);padding:10px;border-radius:10px}
+.room-icon{width:56px;height:56px;border-radius:10px;background:linear-gradient(135deg,var(--orange),#ffb77b);display:flex;align-items:center;justify-content:center;font-size:22px}
+.room-info h3{margin:0;font-size:1rem}
+.room-meta{font-size:0.8rem;color:#666;margin-top:6px}
+
+/* ---------- chatroom ---------- */
+.chatroom-page{display:flex;flex-direction:column}
+.chatroom{display:flex;flex-direction:column;background:rgba(255,255,255,0.95);border-radius:10px;overflow:hidden}
+.chat-window{height:60vh;padding:12px;overflow:auto}
+.message{background:var(--beige);padding:10px;border-radius:14px;margin-bottom:8px;max-width:78%;word-break:break-word}
+.message.system{background:var(--orange);color:#fff;text-align:center}
+.message.user{background:var(--purple);color:#fff;align-self:flex-end}
+.chat-input{display:flex;border-top:1px solid rgba(0,0,0,0.06);padding:8px}
+.chat-input input{flex:1;padding:8px;border-radius:8px;border:1px solid rgba(0,0,0,0.08);outline:none}
+.chat-input button{margin-left:8px;padding:8px 12px;border-radius:8px;background:var(--purple);color:#fff;border:0}
+
+/* ---------- profile ---------- */
+.profile{display:flex;flex-direction:column;align-items:center;gap:10px;padding:12px}
+.avatar{width:110px;height:110px;border-radius:50%;object-fit:cover;background:#fff;border:4px solid rgba(0,0,0,0.06)}
+.profile-form{width:100%;margin-top:6px;display:flex;flex-direction:column;gap:8px}
+.profile-form label{display:flex;flex-direction:column}
+.profile-actions{display:flex;gap:8px;justify-content:flex-start;margin-top:8px}
+.preview-tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
+.preview-tags .tag{background:rgba(0,0,0,0.06);padding:6px 8px;border-radius:999px;font-size:0.85rem}
+
+/* ---------- settings ---------- */
+.settings .setting-row{display:flex;justify-content:space-between;align-items:center;background:rgba(255,255,255,0.9);padding:10px;border-radius:10px;margin-bottom:8px}
+
+/* ---------- records (簡單) ---------- */
+.records ul{list-style:none;padding:0;margin:0}
+.records li{background:rgba(255,255,255,0.95);padding:10px;border-radius:8px;margin-bottom:8px}
+
+/* ---------- RWD ---------- */
+@media(min-width:768px){
+  .container{max-width:720px;margin:0 auto}
+  .map{height:380px}
+  .quick-links{grid-template-columns:repeat(4,1fr)}
 }
