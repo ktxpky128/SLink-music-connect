@@ -107,3 +107,12 @@ body{
   .map{height:380px}
   .quick-links{grid-template-columns:repeat(4,1fr)}
 }
+/* 手機 App 視窗模擬 */
+body {
+  max-width: 430px;
+  margin: 0 auto;
+  border: 10px solid #000;
+  border-radius: 30px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.3);
+  background: linear-gradient(135deg, #a770ef, #fdb99b, #f7f1e3);
+}
