@@ -1,118 +1,82 @@
-/* ---------- 基本 ---------- */
 :root{
   --purple:#a770ef;
   --orange:#fdb99b;
   --beige:#f7f1e3;
-  --text:#333;
+  --text:#222;
+  --muted:#6b6b6b;
 }
 *{box-sizing:border-box}
-html,body{height:100%}
-body{
-  margin:0;font-family:"Noto Sans TC",system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue";
-  background:linear-gradient(135deg,var(--purple),#b98bff,var(--orange),var(--beige));
-  color:var(--text);
-  -webkit-font-smoothing:antialiased;
-  display:flex;flex-direction:column;
-  min-height:100vh;
-}
+html,body{height:100%;margin:0;font-family:"Noto Sans TC",system-ui;}
+body{background:linear-gradient(135deg,var(--purple),#b98bff,var(--orange));color:var(--text);display:flex;justify-content:center;padding:12px}
 
-/* ---------- topbar ---------- */
-.topbar{
-  display:flex;align-items:center;gap:12px;padding:12px 16px;
-  background:rgba(255,255,255,0.75);backdrop-filter:blur(6px);
-  border-bottom:1px solid rgba(0,0,0,0.05);
-}
-.topbar.small{padding:8px}
-.logo{width:52px;height:52px;object-fit:cover;border-radius:12px}
-.smalllogo{width:36px;height:36px}
-.top-title h1{margin:0;font-size:1.2rem;color:var(--purple)}
-.subtitle{margin:0;font-size:0.85rem;color:#6b6b6b}
+/* 模擬手機框 */
+.app-shell{width:380px;max-width:96vw;background:linear-gradient(180deg,rgba(255,255,255,0.92),rgba(255,255,255,0.95));border-radius:18px;overflow:hidden;box-shadow:0 12px 40px rgba(0,0,0,0.18);display:flex;flex-direction:column;height:92vh}
 
-/* ---------- container ---------- */
-.container{flex:1;overflow:auto;padding:16px}
+/* topbar */
+.topbar{display:flex;align-items:center;gap:10px;padding:12px 14px;border-bottom:1px solid rgba(0,0,0,0.05);background:linear-gradient(90deg,rgba(255,255,255,0.6),rgba(255,255,255,0.4))}
+.logo{width:44px;height:44px;border-radius:10px;object-fit:cover}
+.title-wrap{line-height:1}
+.app-title{font-weight:800;color:var(--purple);font-size:1.05rem}
+.app-sub{font-size:0.78rem;color:var(--muted)}
 
-/* ---------- map-card & now ---------- */
-.home-hero h2{margin:6px 0;font-size:1.1rem}
-.muted{color:#666;margin:0 0 12px 0}
-.map-card{background:rgba(255,255,255,0.85);border-radius:14px;padding:12px;margin-bottom:12px}
-.map{position:relative;height:260px;border-radius:10px;background:linear-gradient(180deg,rgba(255,255,255,0.6),rgba(255,255,255,0.9));overflow:hidden}
-.pin{width:28px;height:28px;border-radius:50%;background:var(--orange);position:absolute;transform:translate(-50%,-50%);box-shadow:0 4px 8px rgba(0,0,0,0.12);cursor:pointer}
-.pin.user{background:var(--purple)}
-.pin::after{content:attr(data-song);position:absolute;bottom:34px;left:50%;transform:translateX(-50%);font-size:0.7rem;background:rgba(0,0,0,0.55);color:#fff;padding:4px 6px;border-radius:6px;white-space:nowrap;display:none}
-.pin:hover::after{display:block}
+/* main area */
+.main{flex:1;overflow:auto;padding:14px}
+.view{display:none}
+.view.active{display:block}
 
-/* 現在正在聽 */
-.now-listen{margin-top:12px}
-.now-card{display:flex;gap:12px;background:rgba(255,255,255,0.95);padding:12px;border-radius:12px;align-items:center}
-.album-cover{width:72px;height:72px;border-radius:10px;background:linear-gradient(135deg,var(--purple),var(--orange));display:flex;align-items:center;justify-content:center;color:white;font-size:1.4rem}
-.now-info{flex:1;text-align:left}
-.song{font-weight:700}
-.artist{font-size:0.9rem;color:#666;margin-top:6px}
-.actions{margin-top:10px;display:flex;gap:10px}
-.btn{border:0;padding:8px 12px;border-radius:999px;cursor:pointer;font-weight:600}
+/* HOME big card */
+.home-center{display:flex;justify-content:center;align-items:center;height:70%}
+.big-card{width:100%;background:var(--beige);border-radius:14px;padding:16px;text-align:center;box-shadow:0 6px 18px rgba(0,0,0,0.06)}
+.big-icon{font-size:36px}
+.muted{color:var(--muted)}
+.controls{display:flex;align-items:center;justify-content:center;gap:12px;margin:12px 0}
+.switch{position:relative;width:46px;height:26px}
+.switch input{display:none}
+.slider{position:absolute;inset:0;border-radius:999px;background:#ddd}
+.slider::after{content:'';position:absolute;width:18px;height:18px;border-radius:50%;background:#fff;left:4px;top:4px;transition:all .18s}
+.switch input:checked + .slider{background:var(--purple)}
+.switch input:checked + .slider::after{transform:translateX(20px)}
+.control-info select{padding:6px;border-radius:8px;border:1px solid rgba(0,0,0,0.08)}
+.btn{padding:10px 14px;border-radius:999px;border:0;font-weight:700;cursor:pointer}
 .btn.primary{background:var(--purple);color:#fff}
 .btn.outline{background:transparent;border:2px solid var(--purple);color:var(--purple)}
+.btn.large{display:inline-block;margin-top:10px;padding:12px 18px;font-size:1rem}
+.log{margin-top:12px;text-align:left;max-height:120px;overflow:auto;padding:6px;border-radius:8px;background:rgba(0,0,0,0.03);font-size:0.9rem}
 
-/* ---------- quick links ---------- */
-.quick-links{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:16px}
-.card-link{display:block;background:rgba(255,255,255,0.9);padding:12px;border-radius:10px;text-decoration:none;color:var(--text);text-align:left}
-.card-link small{color:#666}
+/* bottom nav */
+.bottom-nav{display:flex;gap:8px;padding:8px;background:linear-gradient(90deg,var(--purple),#8f5bff);border-radius:10px;margin:12px}
+.nav-btn{flex:1;background:transparent;border:0;color:#fff;padding:8px;border-radius:8px;display:flex;flex-direction:column;align-items:center;gap:4px;font-weight:700;cursor:pointer}
+.nav-btn.active{background:rgba(255,255,255,0.12)}
+.icon{font-size:18px}
+.label{font-size:12px}
 
-/* ---------- navbar ---------- */
-.navbar{position:fixed;bottom:12px;left:12px;right:12px;background:linear-gradient(90deg,var(--purple),#8f5bff);display:flex;justify-content:space-around;padding:8px;border-radius:14px;box-shadow:0 6px 20px rgba(0,0,0,0.15)}
-.navbar .nav-item{text-decoration:none;color:#fff;text-align:center;font-size:12px;flex:1;padding:6px 6px;border-radius:10px}
-.navbar .nav-item img{width:22px;height:22px;display:block;margin:0 auto 4px;filter:brightness(0) invert(1)}
-.navbar .nav-item.active{background:rgba(255,255,255,0.15)}
-/* icons fallback if missing */
-.navbar .nav-item span{display:block}
+/* rooms */
+.section-head{margin-bottom:8px}
+.rooms-grid{display:flex;flex-direction:column;gap:10px}
+.room-card{background:linear-gradient(90deg,var(--beige),#fff);padding:10px;border-radius:12px;display:flex;align-items:center;gap:10px;justify-content:space-between}
+.room-info{flex:1}
+.room-icon{width:48px;height:48px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px;background:linear-gradient(90deg,var(--orange),#ffba87)}
 
-/* ---------- rooms list ---------- */
-.rooms-list h2{margin:0 0 8px 0}
-.room-cards{display:flex;flex-direction:column;gap:10px;margin-top:12px}
-.room{display:flex;align-items:center;gap:12px;background:rgba(255,255,255,0.95);padding:10px;border-radius:10px}
-.room-icon{width:56px;height:56px;border-radius:10px;background:linear-gradient(135deg,var(--orange),#ffb77b);display:flex;align-items:center;justify-content:center;font-size:22px}
-.room-info h3{margin:0;font-size:1rem}
-.room-meta{font-size:0.8rem;color:#666;margin-top:6px}
-
-/* ---------- chatroom ---------- */
-.chatroom-page{display:flex;flex-direction:column}
-.chatroom{display:flex;flex-direction:column;background:rgba(255,255,255,0.95);border-radius:10px;overflow:hidden}
-.chat-window{height:60vh;padding:12px;overflow:auto}
-.message{background:var(--beige);padding:10px;border-radius:14px;margin-bottom:8px;max-width:78%;word-break:break-word}
-.message.system{background:var(--orange);color:#fff;text-align:center}
+/* chatroom */
+.chatroom{display:flex;flex-direction:column;gap:8px}
+.chat-window{height:52vh;background:#fff;padding:12px;border-radius:10px;overflow:auto;border:1px solid rgba(0,0,0,0.04)}
+.message{background:var(--beige);padding:8px;border-radius:12px;margin-bottom:8px;max-width:78%}
 .message.user{background:var(--purple);color:#fff;align-self:flex-end}
-.chat-input{display:flex;border-top:1px solid rgba(0,0,0,0.06);padding:8px}
-.chat-input input{flex:1;padding:8px;border-radius:8px;border:1px solid rgba(0,0,0,0.08);outline:none}
-.chat-input button{margin-left:8px;padding:8px 12px;border-radius:8px;background:var(--purple);color:#fff;border:0}
+.chat-input{display:flex;gap:8px}
+.chat-input input{flex:1;padding:8px;border-radius:10px;border:1px solid rgba(0,0,0,0.06)}
 
-/* ---------- profile ---------- */
-.profile{display:flex;flex-direction:column;align-items:center;gap:10px;padding:12px}
-.avatar{width:110px;height:110px;border-radius:50%;object-fit:cover;background:#fff;border:4px solid rgba(0,0,0,0.06)}
-.profile-form{width:100%;margin-top:6px;display:flex;flex-direction:column;gap:8px}
-.profile-form label{display:flex;flex-direction:column}
-.profile-actions{display:flex;gap:8px;justify-content:flex-start;margin-top:8px}
-.preview-tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
-.preview-tags .tag{background:rgba(0,0,0,0.06);padding:6px 8px;border-radius:999px;font-size:0.85rem}
+/* profile */
+.profile-card{background:rgba(255,255,255,0.95);padding:12px;border-radius:12px;text-align:center}
+.avatar{width:110px;height:110px;border-radius:999px;object-fit:cover;border:4px solid rgba(0,0,0,0.05);margin-bottom:8px}
+.profile-actions{display:flex;gap:8px;justify-content:center;margin-top:8px}
+.tag-preview{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
+.tag{background:rgba(0,0,0,0.06);padding:6px 8px;border-radius:999px;font-weight:700;color:var(--muted)}
 
-/* ---------- settings ---------- */
-.settings .setting-row{display:flex;justify-content:space-between;align-items:center;background:rgba(255,255,255,0.9);padding:10px;border-radius:10px;margin-bottom:8px}
+/* settings */
+.settings-card{background:rgba(255,255,255,0.95);padding:12px;border-radius:12px}
+.dist-list{padding-left:18px;color:var(--muted);font-size:0.95rem}
 
-/* ---------- records (簡單) ---------- */
-.records ul{list-style:none;padding:0;margin:0}
-.records li{background:rgba(255,255,255,0.95);padding:10px;border-radius:8px;margin-bottom:8px}
-
-/* ---------- RWD ---------- */
-@media(min-width:768px){
-  .container{max-width:720px;margin:0 auto}
-  .map{height:380px}
-  .quick-links{grid-template-columns:repeat(4,1fr)}
-}
-/* 手機 App 視窗模擬 */
-body {
-  max-width: 430px;
-  margin: 0 auto;
-  border: 10px solid #000;
-  border-radius: 30px;
-  box-shadow: 0 0 20px rgba(0,0,0,0.3);
-  background: linear-gradient(135deg, #a770ef, #fdb99b, #f7f1e3);
+/* responsive small */
+@media(max-width:420px){
+  .app-shell{width:100vw;border-radius:0;height:100vh}
 }
